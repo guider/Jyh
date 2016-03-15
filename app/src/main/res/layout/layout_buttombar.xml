@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:id="@+id/radiogroup"
+    android:orientation="horizontal">
+    <RadioButton
+        android:id="@+id/internal"
+        android:text="国内惠"
+        android:checked="true"
+        style="@style/radiobutton" />
+    <RadioButton
+        android:id="@+id/global"
+        android:text="全球惠"
+        style="@style/radiobutton" />
+    <RadioButton
+        android:id="@+id/collect"
+        android:text="收藏惠"
+        style="@style/radiobutton" />
+</RadioGroup>

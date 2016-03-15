@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RadioImageView">
+        <attr name="radio" format="float" />
+    </declare-styleable>
+    <declare-styleable name="SwipeBackLayout">
+        <attr name="edge_size" format="dimension" />
+        <attr name="edge_flag">
+            <enum name="left" value="0" />
+            <enum name="right" value="1" />
+            <enum name="bottom" value="2" />
+            <enum name="all" value="3" />
+        </attr>
+        <attr name="shadow_left" format="reference" />
+        <attr name="shadow_right" format="reference" />
+        <attr name="shadow_bottom" format="reference" />
+    </declare-styleable>
+
+    <attr name="SwipeBackLayoutStyle" format="reference" />
+
+    <declare-styleable name="RoundImageView">
+        <attr name="zjw_radius" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="HorizontalProgressBarWithNumber">
+        <attr name="progress_unreached_color" format="color" />
+        <attr name="progress_reached_color" format="color" />
+        <attr name="progress_reached_bar_height" format="dimension" />
+        <attr name="progress_unreached_bar_height" format="dimension" />
+        <attr name="progress_text_size" format="dimension" />
+        <attr name="progress_text_color" format="color" />
+        <attr name="progress_text_offset" format="dimension" />
+        <attr name="progress_text_visibility" format="enum">
+            <enum name="visible" value="0" />
+            <enum name="invisible" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="RoundProgressBarWidthNumber">
+        <attr name="radius" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="MaxEditText">
+        <attr name="frame_color" format="color" />
+        <attr name="frame_with" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="AutoWebView">
+        <attr name="progressbarPostion" format="enum">
+            <enum name="Top" value="0" />
+            <enum name="Bottom" value="1" />
+        </attr>
+
+    </declare-styleable>
+    <declare-styleable name="ButtomBar">
+        <attr name="parent_height" format="dimension|reference" />
+    </declare-styleable>
+</resources>
