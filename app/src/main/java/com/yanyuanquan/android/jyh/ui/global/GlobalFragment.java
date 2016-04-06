@@ -47,7 +47,7 @@ public class GlobalFragment extends InlandFragment {
 
     @Override
     protected void initView() {
-//        initData();
+        initData();
     }
 
     @Override
@@ -57,7 +57,8 @@ public class GlobalFragment extends InlandFragment {
 
     @Override
     protected void loadMoreData() {
-        ApiServiceModel.getInstance().getService().getGlobalList(String.valueOf(adapter.getData(adapter.getCount()).getId()))
+        ApiServiceModel.getInstance().getService()
+                .getGlobalList("us","30",String.valueOf(adapter.getData(adapter.getCount()-1).getId()))
                 .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Action1<Main>() {
                     @Override
@@ -75,8 +76,9 @@ public class GlobalFragment extends InlandFragment {
                 });
     }
 
+
     protected void initData() {
-        ApiServiceModel.getInstance().getService().getGlobalList("no")
+        ApiServiceModel.getInstance().getService().getGlobalList("us","30","")
                 .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Action1<Main>() {
                     @Override

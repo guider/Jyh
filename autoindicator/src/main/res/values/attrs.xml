@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AutoIndicator">
+        <attr name="visiable_tab_conut" format="integer"/>
+    </declare-styleable>
+</resources>

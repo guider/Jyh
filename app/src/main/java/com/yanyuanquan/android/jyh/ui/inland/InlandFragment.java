@@ -2,9 +2,12 @@ package com.yanyuanquan.android.jyh.ui.inland;
 
 import android.content.Context;
 import android.widget.ImageView;
+import android.widget.TabHost;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.nostra13.universalimageloader.core.assist.LoadedFrom;
+import com.nostra13.universalimageloader.utils.L;
 import com.yanyuanquan.android.jyh.R;
 import com.yanyuanquan.android.jyh.api.ApiService;
 import com.yanyuanquan.android.jyh.api.ApiServiceModel;
@@ -37,14 +40,6 @@ public class InlandFragment extends AutoBaseListFragment<Main.DataEntity> {
         return R.layout.item_main;
     }
 
-    @Override
-    protected void setListData(Main.DataEntity entity, AutoViewHolder holder, Context context) {
-        ((TextView) holder.getView(R.id.title)).setText(entity.getTitle());
-        ((TextView) holder.getView(R.id.source)).setText(entity.getMall());
-        ((TextView) holder.getView(R.id.time)).setText(entity.getPubtime());
-        Glide.with(context).load(entity.getImage()).into((ImageView) holder.getView(R.id.image));
-    }
-
 
     @Override
     protected void initView() {
@@ -58,8 +53,7 @@ public class InlandFragment extends AutoBaseListFragment<Main.DataEntity> {
 
     @Override
     protected void loadMoreData() {
-        String id = "getlist.php?markid="+String.valueOf(adapter.getData(adapter.getCount()).getId());
-        ApiServiceModel.getInstance().getService().getList(id)
+        ApiServiceModel.getInstance().getService().getList("30",adapter.getData(adapter.getCount()-1).getId()+"")
                 .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Action1<Main>() {
                     @Override
@@ -67,10 +61,12 @@ public class InlandFragment extends AutoBaseListFragment<Main.DataEntity> {
                         getAdapter().append(main.getData());
                         setHasMore(true);
                         setLoadMoreComplete();
+                        L.e(main.toString());
                     }
                 }, new Action1<Throwable>() {
                     @Override
                     public void call(Throwable throwable) {
+                        L.e(throwable.toString());
                         setLoadMoreComplete();
                         setHasMore(false);
                     }
@@ -78,7 +74,7 @@ public class InlandFragment extends AutoBaseListFragment<Main.DataEntity> {
     }
 
     protected void initData() {
-        ApiServiceModel.getInstance().getService().getList("getlist.php?markid=null")
+        ApiServiceModel.getInstance().getService().getList("30","")
                 .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Action1<Main>() {
                     @Override
@@ -96,4 +92,14 @@ public class InlandFragment extends AutoBaseListFragment<Main.DataEntity> {
                     }
                 });
     }
+
+
+    @Override
+    protected void setListData(Main.DataEntity entity, AutoViewHolder holder, Context context) {
+        ((TextView) holder.getView(R.id.title)).setText(entity.getTitle());
+        ((TextView) holder.getView(R.id.source)).setText(entity.getMall());
+        ((TextView) holder.getView(R.id.time)).setText(entity.getPubtime());
+        Glide.with(context).load(entity.getImage()).into((ImageView) holder.getView(R.id.image));
+    }
+
 }

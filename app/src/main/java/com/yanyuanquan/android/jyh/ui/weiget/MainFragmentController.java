@@ -5,7 +5,9 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 
+import com.yanyuanquan.android.jyh.ui.global.GlobalFragment;
 import com.yanyuanquan.android.jyh.ui.inland.InlandFragment;
+import com.yanyuanquan.android.jyh.ui.trank.TrankFragment;
 import com.yanyuanquan.android.mylibrary.base.BaseFragmentController;
 
 /**
@@ -26,8 +28,8 @@ public class MainFragmentController extends BaseFragmentController {
     @Override
     public void init(int containId) {
         fragments.add(new InlandFragment());
-        fragments.add(new Fragment());
-        fragments.add(new Fragment());
+        fragments.add(new GlobalFragment());
+        fragments.add(new TrankFragment());
         FragmentTransaction ft = fm.beginTransaction();
         for (Fragment f:fragments){
             ft.add(containId,f);

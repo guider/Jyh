@@ -50,4 +50,10 @@ public class ActivityMain extends BaseActivity implements RadioGroup.OnCheckedCh
                 break;
         }
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        contrller.onDestory();
+    }
 }
