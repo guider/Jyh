@@ -1,6 +1,9 @@
 package com.yanyuanquan.android.jyh.ui.inland;
 
 import android.content.Context;
+import android.content.Intent;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
@@ -13,6 +16,7 @@ import com.yanyuanquan.android.jyh.api.ApiService;
 import com.yanyuanquan.android.jyh.api.ApiServiceModel;
 import com.yanyuanquan.android.jyh.base.BaseFragment;
 import com.yanyuanquan.android.jyh.entity.Main;
+import com.yanyuanquan.android.jyh.ui.commom.ActivityDetails;
 import com.yanyuanquan.android.mylibrary.AutoViewHolder;
 import com.yanyuanquan.android.mylibrary.widget.AutoBaseListFragment;
 
@@ -23,7 +27,7 @@ import rx.schedulers.Schedulers;
 /**
  * Created by apple on 16/3/14.
  */
-public class InlandFragment extends AutoBaseListFragment<Main.DataEntity> {
+public class InlandFragment extends AutoBaseListFragment<Main.DataEntity> implements AdapterView.OnItemClickListener{
 
     @Override
     protected boolean canRefresh() {
@@ -49,6 +53,7 @@ public class InlandFragment extends AutoBaseListFragment<Main.DataEntity> {
     @Override
     protected void refresh() {
         initData();
+        getListView().setOnItemClickListener(this);
     }
 
     @Override
@@ -92,7 +97,14 @@ public class InlandFragment extends AutoBaseListFragment<Main.DataEntity> {
                     }
                 });
     }
-
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        if (adapter != null&&adapter.getData(position)!=null){
+            Intent intent = new Intent(activity, ActivityDetails.class);
+            intent.putExtra(ActivityDetails.class.getName(),adapter.getData(position).getId());
+            activity.startActivity(intent);
+        }
+    }
 
     @Override
     protected void setListData(Main.DataEntity entity, AutoViewHolder holder, Context context) {

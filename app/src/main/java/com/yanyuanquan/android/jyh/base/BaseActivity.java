@@ -41,4 +41,8 @@ public abstract class BaseActivity extends BaseUtilActivity {
         ButterKnife.unbind(this);
         super.onDestroy();
     }
+
+
+
+
 }

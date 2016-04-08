@@ -24,6 +24,7 @@ public class ApiServiceModel {
     @Singleton
     Retrofit provideRetrofit() {
         OkHttpClient client = new OkHttpClient();
+
         Retrofit retrofit = new Retrofit.Builder()
                 .client(client)
                 .baseUrl(baseUrl)

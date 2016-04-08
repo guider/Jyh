@@ -29,4 +29,5 @@ public interface ApiService {
     // 搜索接口
     @GET("api/getresult.php")
     Observable<TrankList> search();
+
 }

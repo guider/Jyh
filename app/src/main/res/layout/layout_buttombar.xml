@@ -15,6 +15,6 @@
         style="@style/radiobutton" />
     <RadioButton
         android:id="@+id/collect"
-        android:text="收藏惠"
+        android:text="最热惠"
         style="@style/radiobutton" />
 </RadioGroup>

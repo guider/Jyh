@@ -28,7 +28,7 @@ public class ActivityMain extends BaseActivity implements RadioGroup.OnCheckedCh
 
     @Override
     protected void init() {
-        contrller = (MainFragmentController) MainFragmentController.getInstance(this,R.id.framelayout);
+        contrller = (MainFragmentController) MainFragmentController.getInstance(this, R.id.framelayout);
     }
 
     @Override
@@ -41,12 +41,15 @@ public class ActivityMain extends BaseActivity implements RadioGroup.OnCheckedCh
         switch (checkedId) {
             case R.id.internal:
                 contrller.showFragment(0);
+                contrller.getFragment(0).setUserVisibleHint(true);
                 break;
             case R.id.global:
                 contrller.showFragment(1);
+                contrller.getFragment(1).setUserVisibleHint(true);
                 break;
             case R.id.collect:
                 contrller.showFragment(2);
+                contrller.getFragment(2).setUserVisibleHint(true);
                 break;
         }
     }

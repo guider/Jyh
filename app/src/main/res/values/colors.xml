@@ -6,4 +6,6 @@
     <color name="black">#000</color>
     <color name="main">#50AE43</color>
     <color name="white">#fff</color>
+    <color name="gold">#af9d83</color>
+    <color name="gray">#4e4e4e</color>
 </resources>
