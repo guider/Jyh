@@ -7,6 +7,10 @@
 
     <com.yanyuanquan.android.mylibrary.widget.AutoWebView
         android:id="@+id/auto_web"
+
+
+
+        
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>
